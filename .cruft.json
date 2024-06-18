@@ -1,0 +1,18 @@
+{
+  "template": "https://github.com/reef-technologies/cookiecutter-rt-pkg",
+  "commit": "eb460f549e7cfd1934ceb89af55b2923e48f7ea6",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "package_name": "pytest_apiver",
+      "repository_github_url": "https://github.com/reef-technologies/pytest_apiver",
+      "is_django_package": "n",
+      "_jinja2_env_vars": {
+        "block_start_string": "# COOKIECUTTER{%",
+        "block_end_string": "%}"
+      },
+      "_template": "https://github.com/reef-technologies/cookiecutter-rt-pkg"
+    }
+  },
+  "directory": null
+}
