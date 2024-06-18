@@ -1,19 +1,48 @@
 # pytest_apiver
 &nbsp;[![Continuous Integration](https://github.com/reef-technologies/pytest_apiver/workflows/Continuous%20Integration/badge.svg)](https://github.com/reef-technologies/pytest_apiver/actions?query=workflow%3A%22Continuous+Integration%22)&nbsp;[![License](https://img.shields.io/pypi/l/pytest_apiver.svg?label=License)](https://pypi.python.org/pypi/pytest_apiver)&nbsp;[![python versions](https://img.shields.io/pypi/pyversions/pytest_apiver.svg?label=python%20versions)](https://pypi.python.org/pypi/pytest_apiver)&nbsp;[![PyPI version](https://img.shields.io/pypi/v/pytest_apiver.svg?label=PyPI%20version)](https://pypi.python.org/pypi/pytest_apiver)
 
+Pytest plugin helping to test packages implementing [ApiVer](https://www.youtube.com/watch?v=FgcoAKchPjk). 
+
 ## Usage
 
-> [!IMPORTANT]
-> This package uses [ApiVer](#versioning), make sure to import `pytest_apiver.v1`.
+Assuming your package exposes `v1`, `v2`, ... ApiVer interfaces, i.e. has structure like this:
+```
+my_package/
+    __init__.py
+    v1/
+        __init__.py
+    ...
+    _v3/
+        __init__.py
+```
+
+You can configure to run apiver-aware tests against it using `pyproject.toml`:
+```toml
+[tool.pytest.ini_options]
+target_package_name = "my_package"
+```
+
+Then you can write tests like this:
+```
+@pytest.mark.apiver(from_ver=2, to_ver=3)
+def test_run_for_apiver_ver_2_3(apiver_module):
+    assert apiver_module.func()
+```
+
+Which will run test against `my_package.v2.func()` and `my_package.v3.func()` respectively.
+
+For non-flat package structure, you can use `apiver_import` fixture to import the correct module:
+```
+@pytest.mark.apiver(from_ver=2, to_ver=2)
+def test_func__v2(apiver_import):
+    assert apiver_import('utils').func()  # equivalent to my_package.v2.utils.func()
+```
 
 
 ## Versioning
 
 This package uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 TL;DR you are safe to use [compatible release version specifier](https://packaging.python.org/en/latest/specifications/version-specifiers/#compatible-release) `~=MAJOR.MINOR` in your `pyproject.toml` or `requirements.txt`.
-
-Additionally, this package uses [ApiVer](https://www.youtube.com/watch?v=FgcoAKchPjk) to further reduce the risk of breaking changes.
-This means, the public API of this package is explicitly versioned, e.g. `pytest_apiver.v1`, and will not change in a backwards-incompatible way even when `pytest_apiver.v2` is released.
 
 Internal packages, i.e. prefixed by `pytest_apiver._` do not share these guarantees and may change in a backwards-incompatible way at any time even in patch releases.
 
