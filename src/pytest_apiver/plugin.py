@@ -84,4 +84,5 @@ def apiver_import(apiver, apiver_tested_package_name):
 
 @pytest.fixture
 def apiver_module(apiver_import):
-    return apiver_import()
+    module = apiver_import()
+    return _internal.install_submodule_importer_getter(module)

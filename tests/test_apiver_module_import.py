@@ -18,3 +18,8 @@ def test_apiver_import__utils__module_not_found(apiver_import):
 @pytest.mark.apiver(from_ver=3)
 def test_apiver_import__dummy_util(apiver_import):
     assert apiver_import("utils").dummy_util() == 1
+
+
+@pytest.mark.apiver(from_ver=3)
+def test_apiver_module__dummy_util(apiver_module):
+    assert apiver_module.utils.dummy_util() == 1

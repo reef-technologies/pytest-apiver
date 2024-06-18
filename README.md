@@ -31,11 +31,11 @@ def test_run_for_apiver_ver_2_3(apiver_module):
 
 Which will run test against `my_package.v2.func()` and `my_package.v3.func()` respectively.
 
-For non-flat package structure, you can use `apiver_import` fixture to import the correct module:
+For non-flat package structure, you can use auto-magical getter doing imports of submodules built into `apiver_module` fixture, e.g.:
 ```
 @pytest.mark.apiver(from_ver=2, to_ver=2)
-def test_func__v2(apiver_import):
-    assert apiver_import('utils').func()  # equivalent to my_package.v2.utils.func()
+def test_func__v2(apiver_module):
+    assert apiver_module.utils.func()  # equivalent to my_package.v2.utils.func()
 ```
 
 
