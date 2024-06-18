@@ -62,7 +62,7 @@ def apiver_int(apiver):
 
 
 def _get_module_name(pkg: str, apiver, module_name: str | None = None):
-    return f"{pkg}.{apiver}.{module_name}" if module_name else apiver
+    return f"{pkg}.{apiver}.{module_name}" if module_name else f"{pkg}.{apiver}"
 
 
 @pytest.fixture
@@ -77,7 +77,7 @@ def apiver_import(apiver, apiver_tested_package_name):
                 return importlib.import_module(unstable_full_module_name)
             except ModuleNotFoundError:
                 pass
-            raise ModuleNotFoundError(f"Module {module_name!r} or {unstable_full_module_name!r} not found.")
+            raise ModuleNotFoundError(f"Module {full_module_name!r} or {unstable_full_module_name!r} not found.")
 
     return importer
 

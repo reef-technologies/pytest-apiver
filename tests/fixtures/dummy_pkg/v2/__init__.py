@@ -1,3 +1,2 @@
 def foo():
-    print(__file__)
-    return "foo"
+    return "foo_v2"

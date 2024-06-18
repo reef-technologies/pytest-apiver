@@ -1,2 +1,2 @@
 def foo():
-    return __file__
+    return "foo_v3"
