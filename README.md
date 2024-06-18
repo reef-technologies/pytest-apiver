@@ -1,5 +1,5 @@
 # pytest_apiver
-&nbsp;[![Continuous Integration](workflows/Continuous%20Integration/badge.svg)](actions?query=workflow%3A%22Continuous+Integration%22)&nbsp;[![License](https://img.shields.io/pypi/l/pytest_apiver.svg?label=License)](https://pypi.python.org/pypi/pytest_apiver)&nbsp;[![python versions](https://img.shields.io/pypi/pyversions/pytest_apiver.svg?label=python%20versions)](https://pypi.python.org/pypi/pytest_apiver)&nbsp;[![PyPI version](https://img.shields.io/pypi/v/pytest_apiver.svg?label=PyPI%20version)](https://pypi.python.org/pypi/pytest_apiver)
+&nbsp;[![Continuous Integration](https://github.com/reef-technologies/pytest_apiver/workflows/Continuous%20Integration/badge.svg)](https://github.com/reef-technologies/pytest_apiver/actions?query=workflow%3A%22Continuous+Integration%22)&nbsp;[![License](https://img.shields.io/pypi/l/pytest_apiver.svg?label=License)](https://pypi.python.org/pypi/pytest_apiver)&nbsp;[![python versions](https://img.shields.io/pypi/pyversions/pytest_apiver.svg?label=python%20versions)](https://pypi.python.org/pypi/pytest_apiver)&nbsp;[![PyPI version](https://img.shields.io/pypi/v/pytest_apiver.svg?label=PyPI%20version)](https://pypi.python.org/pypi/pytest_apiver)
 
 ## Usage
 
