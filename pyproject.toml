@@ -22,6 +22,9 @@ dependencies = [
     "pytest",
 ]
 
+[project.entry-points.pytest11]
+apiver = "pytest_apiver.plugin"
+
 [project.urls]
 "Source" = "https://github.com/reef-technologies/pytest_apiver"
 "Issue Tracker" = "https://github.com/reef-technologies/pytest_apiver/issues"
@@ -32,6 +35,8 @@ build-backend = "pdm.backend"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]  # allow for `import tests` in test files
+empty_parameter_set_mark = "fail_at_collect"  # crucial for testing `apiver` mark generation
+target_package_name = "tests.fixtures.dummy_pkg"
 
 [tool.pdm.dev-dependencies]
 test = [
