@@ -18,6 +18,9 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]
+dynamic = [
+    "version",
+]
 dependencies = [
     "pytest",
 ]
@@ -33,13 +36,11 @@ apiver = "pytest_apiver.plugin"
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-[tool.pytest.ini_options]
-pythonpath = ["."]  # allow for `import tests` in test files
-empty_parameter_set_mark = "fail_at_collect"  # crucial for testing `apiver` mark generation
-target_package_name = "tests.fixtures.dummy_pkg"
-
 [tool.pdm]
 distribution = true
+
+[tool.pdm.version]
+source = "scm"
 
 [tool.pdm.dev-dependencies]
 test = [
@@ -59,6 +60,11 @@ lint = [
 release = [
     "towncrier",
 ]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]  # allow for `import tests` in test files
+empty_parameter_set_mark = "fail_at_collect"  # crucial for testing `apiver` mark generation
+target_package_name = "tests.fixtures.dummy_pkg"
 
 [tool.ruff]
 line-length = 120
