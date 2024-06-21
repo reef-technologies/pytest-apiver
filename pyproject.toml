@@ -38,6 +38,9 @@ pythonpath = ["."]  # allow for `import tests` in test files
 empty_parameter_set_mark = "fail_at_collect"  # crucial for testing `apiver` mark generation
 target_package_name = "tests.fixtures.dummy_pkg"
 
+[tool.pdm]
+distribution = true
+
 [tool.pdm.dev-dependencies]
 test = [
     "freezegun",
