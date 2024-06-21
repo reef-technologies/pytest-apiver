@@ -9,7 +9,6 @@ authors = [
     {name = "Reef Technologies", email = "opensource@reef.pl"},
 ]
 classifiers = [
-    "Development Status :: 2 - Pre-Alpha",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Libraries",
     "License :: OSI Approved :: MIT License",
