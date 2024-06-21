@@ -8,3 +8,10 @@ This project uses [*towncrier*](https://towncrier.readthedocs.io/) and the chang
 upcoming release can be found in [changelog.d](changelog.d).
 
 <!-- towncrier release notes start -->
+
+## [0.1.0](https://github.com/reef-technologies/pytest_apiver/releases/tag/v0.1.0) - 2024-06-21
+
+
+### Added
+
+* `apiver_module` pytest fixture for testing against all ApiVer interface modules
